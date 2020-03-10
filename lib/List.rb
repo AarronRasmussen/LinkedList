@@ -6,7 +6,32 @@ class List
         @head = nil
     end
 
+    def prepend(data)
+        _tNode = Node.new(data)
+
+        if(@head.nil?)
+            @head = _tNode
+            return
+        end
+
+        _tNode.nextNode = @head
+        @head = _tNode
+    end
+
     def append(data)
+        _tNode = Node.new(data)
+
+        if(@head.nil?)
+            @head = _tNode
+            return
+        end
+
+        _nPtr = @head
+        until _nPtr.nil?
+            _nPtr = _nPtr.nextNode
+        end
+
+        _nPtr = _tNode
     end
 
     def size()
@@ -20,4 +45,13 @@ class List
 
         return _counter
     end
+
+    def printList()
+        _tNode = @head
+        until _tNode.nil?
+            p _tNode.data
+            _tNode = _tNode.nextNode
+        end
+    end
+
 end
