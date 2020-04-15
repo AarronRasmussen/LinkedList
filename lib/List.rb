@@ -27,11 +27,12 @@ class List
         end
 
         _nPtr = @head
-        until _nPtr.nil?
+
+        until _nPtr.nextNode.nil?
             _nPtr = _nPtr.nextNode
         end
 
-        _nPtr = _tNode
+        _nPtr.nextNode = _tNode
     end
 
     def size()
